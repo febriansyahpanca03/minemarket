@@ -22,14 +22,14 @@ type Order = {
 };
 
 const statusLabel: Record<string, string> = {
-  PENDING: "Menunggu Pembayaran",
-  PAID: "Sudah Dibayar",
-  PROCESSING: "Sedang Diproses",
-  COMPLETED: "Selesai",
-  CANCELLED: "Dibatalkan",
+  PENDING: "Awaiting Payment",
+  PAID: "Paid",
+  PROCESSING: "Processing",
+  COMPLETED: "Completed",
+  CANCELLED: "Cancelled",
 };
 
-function CekPesananContent() {
+function TrackOrderContent() {
   const searchParams = useSearchParams();
   const initialCode = searchParams.get("code") ?? "";
 
@@ -49,13 +49,13 @@ function CekPesananContent() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error ?? "Pesanan tidak ditemukan");
+        setError(data.error ?? "Order not found");
         return;
       }
 
       setOrder(data.order);
     } catch {
-      setError("Terjadi kesalahan, coba lagi.");
+      setError("Something went wrong, please try again.");
     } finally {
       setLoading(false);
     }
@@ -68,8 +68,8 @@ function CekPesananContent() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
-      <h1 className="text-3xl font-bold">Cek Pesanan</h1>
-      <p className="mt-2 text-slate-400">Masukkan kode pesanan untuk melihat status.</p>
+      <h1 className="text-3xl font-bold">Track Order</h1>
+      <p className="mt-2 text-slate-400">Enter your order code to check its status.</p>
 
       <form
         onSubmit={(e) => {
@@ -81,7 +81,7 @@ function CekPesananContent() {
         <input
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          placeholder="Contoh: MCM-20260918-AB12CD"
+          placeholder="e.g. MST-20260918-AB12CD"
           className="flex-1 rounded-lg border border-white/10 bg-slate-900 px-4 py-3 text-sm outline-none focus:border-emerald-500"
         />
         <button
@@ -89,7 +89,7 @@ function CekPesananContent() {
           disabled={loading}
           className="rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-slate-950 hover:bg-emerald-400 disabled:opacity-60"
         >
-          {loading ? "Mencari..." : "Cari"}
+          {loading ? "Searching..." : "Search"}
         </button>
       </form>
 
@@ -104,7 +104,7 @@ function CekPesananContent() {
             </span>
           </div>
 
-          <p className="mt-4 text-sm text-slate-400">Atas nama</p>
+          <p className="mt-4 text-sm text-slate-400">Ordered by</p>
           <p className="font-semibold">{order.customerName}</p>
 
           <div className="mt-4 space-y-2 border-t border-white/10 pt-4">
@@ -126,7 +126,7 @@ function CekPesananContent() {
           </div>
 
           {order.paymentMethod && (
-            <p className="mt-2 text-sm text-slate-400">Pembayaran: {order.paymentMethod}</p>
+            <p className="mt-2 text-sm text-slate-400">Payment: {order.paymentMethod}</p>
           )}
         </div>
       )}
@@ -134,10 +134,10 @@ function CekPesananContent() {
   );
 }
 
-export default function CekPesananPage() {
+export default function TrackOrderPage() {
   return (
-    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-slate-400">Memuat...</div>}>
-      <CekPesananContent />
+    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-slate-400">Loading...</div>}>
+      <TrackOrderContent />
     </Suspense>
   );
 }

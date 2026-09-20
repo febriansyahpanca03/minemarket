@@ -10,7 +10,7 @@ export async function GET(
   const product = await prisma.product.findUnique({ where: { id } });
 
   if (!product || !product.isActive) {
-    return NextResponse.json({ error: "Produk tidak ditemukan" }, { status: 404 });
+    return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 
   return NextResponse.json({ product });

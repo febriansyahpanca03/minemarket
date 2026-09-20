@@ -19,7 +19,7 @@ export async function PATCH(
   const parsed = updateSchema.safeParse(body);
 
   if (!parsed.success) {
-    return NextResponse.json({ error: "Data tidak valid" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid data" }, { status: 400 });
   }
 
   const order = await prisma.order.update({

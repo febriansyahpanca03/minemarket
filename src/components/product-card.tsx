@@ -26,7 +26,7 @@ export default function ProductCard({
 
   return (
     <Link
-      href={`/produk/${slug}`}
+      href={`/products/${slug}`}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-[0_16px_40px_-20px_rgba(16,185,129,0.45)]"
     >
       <div className="relative aspect-square w-full overflow-hidden bg-slate-800">

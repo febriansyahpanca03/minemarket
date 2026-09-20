@@ -13,7 +13,7 @@ import { prisma } from "@/lib/prisma";
 import ProductCard from "@/components/product-card";
 
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  "akun-minecraft": GameController,
+  "minecraft-accounts": GameController,
   minecoin: Coins,
   diamond: Cube,
   bundle: Package,
@@ -36,34 +36,34 @@ export default async function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-16 pb-20 md:grid-cols-[1.1fr_1fr] md:items-center md:pt-20">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">
-              Toko Minecraft Indonesia
+              Your Minecraft Store
             </p>
             <h1 className="mt-4 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-              Semua kebutuhan Minecraft ada di sini.
+              Everything you need for Minecraft, in one place.
             </h1>
             <p className="mt-4 max-w-md text-slate-300">
-              Akun, minecoin, diamond, dan bundle dengan proses instan dan harga bersahabat.
+              Accounts, minecoin, diamonds, and bundles with instant delivery and fair prices.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/produk"
+                href="/products"
                 className="rounded-full bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400 active:scale-[0.98]"
               >
-                Belanja Sekarang
+                Shop Now
               </Link>
               <Link
-                href="/cek-pesanan"
+                href="/track-order"
                 className="rounded-full border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-white/35 active:scale-[0.98]"
               >
-                Cek Pesanan
+                Track Order
               </Link>
             </div>
           </div>
 
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10">
             <Image
-              src="https://picsum.photos/seed/minemarket-hero-world/1200/900"
-              alt="Dunia Minecraft"
+              src="https://picsum.photos/seed/minestack-hero-world/1200/900"
+              alt="Minecraft world"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -83,7 +83,7 @@ export default async function HomePage() {
                 return (
                   <Link
                     key={category.id}
-                    href={`/produk?category=${category.slug}`}
+                    href={`/products?category=${category.slug}`}
                     className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-900 p-4 transition hover:border-emerald-500/40 hover:bg-slate-800"
                   >
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-500/10 text-emerald-400">
@@ -100,18 +100,18 @@ export default async function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Produk Terbaru</h2>
+          <h2 className="text-2xl font-bold">Latest Products</h2>
           <Link
-            href="/produk"
+            href="/products"
             className="text-sm font-semibold text-emerald-400 hover:text-emerald-300"
           >
-            Lihat semua
+            View all
           </Link>
         </div>
 
         {products.length === 0 ? (
           <p className="mt-8 text-slate-400">
-            Belum ada produk. Tambahkan produk melalui dashboard admin untuk mulai berjualan.
+            No products yet. Add products from the admin dashboard to start selling.
           </p>
         ) : (
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -135,32 +135,32 @@ export default async function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-3xl border border-white/10 bg-slate-900 p-8 md:col-span-2">
               <ShieldCheck weight="fill" className="h-8 w-8 text-emerald-400" />
-              <h3 className="mt-4 text-xl font-bold text-white">Transaksi aman, garansi replace</h3>
+              <h3 className="mt-4 text-xl font-bold text-white">Secure checkout, replacement guarantee</h3>
               <p className="mt-2 max-w-md text-sm text-slate-400">
-                Setiap akun dan top up diverifikasi sebelum dikirim. Ada masalah, kami ganti tanpa
-                ribet.
+                Every account and top up is verified before delivery. If something's wrong, we
+                replace it, no hassle.
               </p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-slate-900 p-8">
               <Lightning weight="fill" className="h-8 w-8 text-emerald-400" />
-              <h3 className="mt-4 text-lg font-bold text-white">Proses instan</h3>
+              <h3 className="mt-4 text-lg font-bold text-white">Instant delivery</h3>
               <p className="mt-2 text-sm text-slate-400">
-                Pesanan diproses dalam hitungan menit setelah pembayaran masuk.
+                Orders are processed within minutes of payment confirmation.
               </p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-slate-900 p-8">
               <Headset weight="fill" className="h-8 w-8 text-emerald-400" />
-              <h3 className="mt-4 text-lg font-bold text-white">Admin siap bantu</h3>
+              <h3 className="mt-4 text-lg font-bold text-white">Support on hand</h3>
               <p className="mt-2 text-sm text-slate-400">
-                Tim support kami siap membantu setiap hari lewat halaman cek pesanan.
+                Our team is ready to help every day through the track order page.
               </p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-slate-900 p-8 md:col-span-2">
               <p className="text-base text-slate-200">
-                "Beli minecoin di sini prosesnya cepat banget, ga sampai 10 menit udah masuk."
+                "Bought minecoin here and it landed in under 10 minutes. Super fast."
               </p>
               <p className="mt-3 text-sm font-semibold text-slate-400">
-                Raka Pratama, pelanggan MineMarket
+                Marcus Webb, Minestack customer
               </p>
             </div>
           </div>

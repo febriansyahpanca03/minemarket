@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
   if (!parsed.success) {
     return NextResponse.json(
-      { error: "Data tidak valid", details: parsed.error.flatten() },
+      { error: "Invalid data", details: parsed.error.flatten() },
       { status: 400 }
     );
   }
@@ -36,14 +36,14 @@ export async function POST(request: Request) {
   });
 
   if (products.length !== items.length) {
-    return NextResponse.json({ error: "Beberapa produk tidak ditemukan" }, { status: 400 });
+    return NextResponse.json({ error: "Some products were not found" }, { status: 400 });
   }
 
   for (const item of items) {
     const product = products.find((p) => p.id === item.productId)!;
     if (product.stock < item.quantity) {
       return NextResponse.json(
-        { error: `Stok ${product.name} tidak mencukupi` },
+        { error: `Not enough stock for ${product.name}` },
         { status: 400 }
       );
     }

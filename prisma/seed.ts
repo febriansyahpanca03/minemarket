@@ -13,7 +13,7 @@ async function main() {
 
   const categories = await Promise.all(
     [
-      { name: "Akun Minecraft", slug: "akun-minecraft" },
+      { name: "Minecraft Accounts", slug: "minecraft-accounts" },
       { name: "Minecoin", slug: "minecoin" },
       { name: "Diamond", slug: "diamond" },
       { name: "Bundle", slug: "bundle" },
@@ -26,63 +26,63 @@ async function main() {
     )
   );
 
-  const [akun, minecoin, diamond, bundle] = categories;
+  const [accounts, minecoin, diamond, bundle] = categories;
 
   const products = [
     {
-      name: "Akun Minecraft Java & Bedrock Edition",
-      slug: "akun-minecraft-java-bedrock",
-      description: "Akun Minecraft original Java + Bedrock, full akses, garansi replace.",
+      name: "Minecraft Java & Bedrock Edition Account",
+      slug: "minecraft-java-bedrock-account",
+      description: "Original Minecraft Java + Bedrock account, full access, replacement guarantee.",
       price: 150000,
       discountPrice: 129000,
       stock: 25,
       type: ProductType.ACCOUNT,
-      categoryId: akun.id,
-      imageUrl: "https://picsum.photos/seed/minemarket-java-bedrock-account/800/800",
+      categoryId: accounts.id,
+      imageUrl: "https://picsum.photos/seed/minestack-java-bedrock-account/800/800",
     },
     {
       name: "Minecoin 1720",
       slug: "minecoin-1720",
-      description: "Top up 1720 Minecoin untuk Minecraft Bedrock Edition, proses instan.",
+      description: "1720 Minecoin top up for Minecraft Bedrock Edition, instant delivery.",
       price: 219000,
       discountPrice: null,
       stock: 50,
       type: ProductType.MINECOIN,
       categoryId: minecoin.id,
-      imageUrl: "https://picsum.photos/seed/minemarket-minecoin-1720/800/800",
+      imageUrl: "https://picsum.photos/seed/minestack-minecoin-1720/800/800",
     },
     {
       name: "Minecoin 320",
       slug: "minecoin-320",
-      description: "Top up 320 Minecoin untuk Minecraft Bedrock Edition, proses instan.",
+      description: "320 Minecoin top up for Minecraft Bedrock Edition, instant delivery.",
       price: 45000,
       discountPrice: 39000,
       stock: 80,
       type: ProductType.MINECOIN,
       categoryId: minecoin.id,
-      imageUrl: "https://picsum.photos/seed/minemarket-minecoin-320/800/800",
+      imageUrl: "https://picsum.photos/seed/minestack-minecoin-320/800/800",
     },
     {
-      name: "Autumn Bundle - Akun + Custom Skin",
-      slug: "autumn-bundle-akun-custom-skin",
-      description: "Paket akun Minecraft Java & Bedrock plus custom skin eksklusif musim gugur.",
+      name: "Autumn Bundle - Account + Custom Skin",
+      slug: "autumn-bundle-account-custom-skin",
+      description: "Minecraft Java & Bedrock account bundle plus an exclusive autumn custom skin.",
       price: 249999,
       discountPrice: 228999,
       stock: 15,
       type: ProductType.BUNDLE,
       categoryId: bundle.id,
-      imageUrl: "https://picsum.photos/seed/minemarket-autumn-bundle/800/800",
+      imageUrl: "https://picsum.photos/seed/minestack-autumn-bundle/800/800",
     },
     {
       name: "Diamond 500",
       slug: "diamond-500",
-      description: "Top up 500 Diamond untuk server-server Minecraft favoritmu.",
+      description: "500 Diamond top up for your favorite Minecraft servers.",
       price: 75000,
       discountPrice: null,
       stock: 40,
       type: ProductType.DIAMOND,
       categoryId: diamond.id,
-      imageUrl: "https://picsum.photos/seed/minemarket-diamond-500/800/800",
+      imageUrl: "https://picsum.photos/seed/minestack-diamond-500/800/800",
     },
   ];
 
@@ -94,7 +94,7 @@ async function main() {
     });
   }
 
-  console.log("Seed selesai.");
+  console.log("Seed complete.");
 }
 
 main()

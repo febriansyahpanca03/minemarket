@@ -32,7 +32,7 @@ export default function AdminProductsPage() {
   }, []);
 
   async function handleDelete(id: string) {
-    if (!confirm("Hapus produk ini?")) return;
+    if (!confirm("Delete this product?")) return;
     await fetch(`/api/admin/products/${id}`, { method: "DELETE" });
     loadProducts();
   }
@@ -41,14 +41,14 @@ export default function AdminProductsPage() {
     <div>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Produk</h1>
-          <p className="mt-1 text-sm text-slate-400">Kelola katalog produk toko.</p>
+          <h1 className="text-2xl font-bold text-white">Products</h1>
+          <p className="mt-1 text-sm text-slate-400">Manage your store's product catalog.</p>
         </div>
         <Link
-          href="/admin/produk/baru"
+          href="/admin/products/new"
           className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-400"
         >
-          + Tambah Produk
+          + Add Product
         </Link>
       </div>
 
@@ -56,25 +56,25 @@ export default function AdminProductsPage() {
         <table className="w-full text-left text-sm">
           <thead className="bg-slate-900 text-slate-400">
             <tr>
-              <th className="px-4 py-3 font-medium">Nama</th>
-              <th className="px-4 py-3 font-medium">Kategori</th>
-              <th className="px-4 py-3 font-medium">Harga</th>
-              <th className="px-4 py-3 font-medium">Stok</th>
+              <th className="px-4 py-3 font-medium">Name</th>
+              <th className="px-4 py-3 font-medium">Category</th>
+              <th className="px-4 py-3 font-medium">Price</th>
+              <th className="px-4 py-3 font-medium">Stock</th>
               <th className="px-4 py-3 font-medium">Status</th>
-              <th className="px-4 py-3 font-medium">Aksi</th>
+              <th className="px-4 py-3 font-medium">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5 bg-slate-950">
             {loading ? (
               <tr>
                 <td colSpan={6} className="px-4 py-6 text-center text-slate-400">
-                  Memuat...
+                  Loading...
                 </td>
               </tr>
             ) : products.length === 0 ? (
               <tr>
                 <td colSpan={6} className="px-4 py-6 text-center text-slate-400">
-                  Belum ada produk.
+                  No products yet.
                 </td>
               </tr>
             ) : (
@@ -94,13 +94,13 @@ export default function AdminProductsPage() {
                           : "bg-slate-700 text-slate-400"
                       }`}
                     >
-                      {product.isActive ? "Aktif" : "Nonaktif"}
+                      {product.isActive ? "Active" : "Inactive"}
                     </span>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex gap-3">
                       <Link
-                        href={`/admin/produk/${product.id}`}
+                        href={`/admin/products/${product.id}`}
                         className="text-emerald-400 hover:text-emerald-300"
                       >
                         Edit
@@ -109,7 +109,7 @@ export default function AdminProductsPage() {
                         onClick={() => handleDelete(product.id)}
                         className="text-red-400 hover:text-red-300"
                       >
-                        Hapus
+                        Delete
                       </button>
                     </div>
                   </td>

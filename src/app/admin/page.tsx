@@ -13,16 +13,16 @@ export default async function AdminOverviewPage() {
   ]);
 
   const stats = [
-    { label: "Total Produk", value: productCount },
-    { label: "Total Pesanan", value: orderCount },
-    { label: "Menunggu Pembayaran", value: pendingCount },
-    { label: "Total Pendapatan", value: formatRupiah(revenueAgg._sum.totalAmount ?? 0) },
+    { label: "Total Products", value: productCount },
+    { label: "Total Orders", value: orderCount },
+    { label: "Awaiting Payment", value: pendingCount },
+    { label: "Total Revenue", value: formatRupiah(revenueAgg._sum.totalAmount ?? 0) },
   ];
 
   return (
     <div>
       <h1 className="text-2xl font-bold text-white">Overview</h1>
-      <p className="mt-1 text-sm text-slate-400">Ringkasan performa toko.</p>
+      <p className="mt-1 text-sm text-slate-400">A snapshot of your store's performance.</p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (

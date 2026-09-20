@@ -23,7 +23,7 @@ export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
   return (
     <div className="rounded-2xl border border-white/10 bg-slate-900 p-6">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-slate-300">Jumlah</span>
+        <span className="text-sm font-medium text-slate-300">Quantity</span>
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -54,7 +54,7 @@ export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
         onClick={handleBuyNow}
         className="mt-6 w-full rounded-full bg-emerald-500 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
       >
-        {outOfStock ? "Stok Habis" : "Beli Sekarang"}
+        {outOfStock ? "Out of Stock" : "Buy Now"}
       </button>
     </div>
   );

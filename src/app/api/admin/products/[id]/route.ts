@@ -27,7 +27,7 @@ export async function GET(
   const product = await prisma.product.findUnique({ where: { id } });
 
   if (!product) {
-    return NextResponse.json({ error: "Produk tidak ditemukan" }, { status: 404 });
+    return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 
   return NextResponse.json({ product });
@@ -46,7 +46,7 @@ export async function PUT(
 
   if (!parsed.success) {
     return NextResponse.json(
-      { error: "Data tidak valid", details: parsed.error.flatten() },
+      { error: "Invalid data", details: parsed.error.flatten() },
       { status: 400 }
     );
   }
@@ -55,7 +55,7 @@ export async function PUT(
     where: { slug: parsed.data.slug, NOT: { id } },
   });
   if (duplicate) {
-    return NextResponse.json({ error: "Slug sudah digunakan" }, { status: 400 });
+    return NextResponse.json({ error: "Slug is already in use" }, { status: 400 });
   }
 
   const product = await prisma.product.update({

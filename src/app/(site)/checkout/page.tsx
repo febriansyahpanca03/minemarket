@@ -38,7 +38,7 @@ function CheckoutForm() {
       .then((res) => res.json())
       .then((data) => {
         if (data.product) setProduct(data.product);
-        else setError("Produk tidak ditemukan");
+        else setError("Product not found");
       })
       .finally(() => setLoading(false));
   }, [productId]);
@@ -61,28 +61,28 @@ function CheckoutForm() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error ?? "Gagal membuat pesanan");
+        setError(data.error ?? "Failed to place order");
         return;
       }
 
-      router.push(`/cek-pesanan?code=${data.order.orderCode}`);
+      router.push(`/track-order?code=${data.order.orderCode}`);
     } catch {
-      setError("Terjadi kesalahan, coba lagi.");
+      setError("Something went wrong, please try again.");
     } finally {
       setSubmitting(false);
     }
   }
 
   if (!productId) {
-    return <p className="text-slate-400">Produk tidak ditemukan. Silakan pilih produk terlebih dahulu.</p>;
+    return <p className="text-slate-400">Product not found. Please choose a product first.</p>;
   }
 
   if (loading) {
-    return <p className="text-slate-400">Memuat...</p>;
+    return <p className="text-slate-400">Loading...</p>;
   }
 
   if (!product) {
-    return <p className="text-red-400">{error ?? "Produk tidak ditemukan"}</p>;
+    return <p className="text-red-400">{error ?? "Product not found"}</p>;
   }
 
   const unitPrice = product.discountPrice ?? product.price;
@@ -91,7 +91,7 @@ function CheckoutForm() {
   return (
     <div className="grid gap-10 md:grid-cols-2">
       <div className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-        <h2 className="font-semibold text-slate-200">Ringkasan Pesanan</h2>
+        <h2 className="font-semibold text-slate-200">Order Summary</h2>
         <div className="mt-4 flex items-center justify-between text-sm">
           <span className="text-slate-300">
             {product.name} x{quantity}
@@ -105,11 +105,11 @@ function CheckoutForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-        <h2 className="font-semibold text-slate-200">Data Pembeli</h2>
+        <h2 className="font-semibold text-slate-200">Buyer Details</h2>
 
         <div className="mt-4 space-y-4">
           <div>
-            <label className="text-sm text-slate-400">Nama Lengkap</label>
+            <label className="text-sm text-slate-400">Full Name</label>
             <input
               required
               value={form.customerName}
@@ -130,7 +130,7 @@ function CheckoutForm() {
           </div>
 
           <div>
-            <label className="text-sm text-slate-400">Nomor WhatsApp</label>
+            <label className="text-sm text-slate-400">Phone Number</label>
             <input
               required
               value={form.customerPhone}
@@ -140,14 +140,14 @@ function CheckoutForm() {
           </div>
 
           <div>
-            <label className="text-sm text-slate-400">Metode Pembayaran</label>
+            <label className="text-sm text-slate-400">Payment Method</label>
             <select
               value={form.paymentMethod}
               onChange={(e) => setForm({ ...form, paymentMethod: e.target.value })}
               className="mt-1 w-full rounded-lg border border-white/10 bg-slate-800 px-3 py-2 text-sm outline-none focus:border-emerald-500"
             >
               <option value="QRIS">QRIS</option>
-              <option value="Transfer Bank">Transfer Bank</option>
+              <option value="Bank Transfer">Bank Transfer</option>
               <option value="E-Wallet">E-Wallet</option>
             </select>
           </div>
@@ -160,7 +160,7 @@ function CheckoutForm() {
           disabled={submitting}
           className="mt-6 w-full rounded-full bg-emerald-500 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:opacity-60"
         >
-          {submitting ? "Memproses..." : "Buat Pesanan"}
+          {submitting ? "Processing..." : "Place Order"}
         </button>
       </form>
     </div>
@@ -171,10 +171,10 @@ export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <h1 className="text-3xl font-bold">Checkout</h1>
-      <p className="mt-2 text-slate-400">Lengkapi data untuk menyelesaikan pesanan.</p>
+      <p className="mt-2 text-slate-400">Fill in your details to complete the order.</p>
 
       <div className="mt-8">
-        <Suspense fallback={<p className="text-slate-400">Memuat...</p>}>
+        <Suspense fallback={<p className="text-slate-400">Loading...</p>}>
           <CheckoutForm />
         </Suspense>
       </div>

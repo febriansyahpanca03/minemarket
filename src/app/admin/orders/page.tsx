@@ -25,11 +25,11 @@ type Order = {
 const statusOptions = ["PENDING", "PAID", "PROCESSING", "COMPLETED", "CANCELLED"];
 
 const statusLabel: Record<string, string> = {
-  PENDING: "Menunggu Pembayaran",
-  PAID: "Sudah Dibayar",
-  PROCESSING: "Sedang Diproses",
-  COMPLETED: "Selesai",
-  CANCELLED: "Dibatalkan",
+  PENDING: "Awaiting Payment",
+  PAID: "Paid",
+  PROCESSING: "Processing",
+  COMPLETED: "Completed",
+  CANCELLED: "Cancelled",
 };
 
 export default function AdminOrdersPage() {
@@ -59,14 +59,14 @@ export default function AdminOrdersPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-white">Pesanan</h1>
-      <p className="mt-1 text-sm text-slate-400">Kelola status pesanan pelanggan.</p>
+      <h1 className="text-2xl font-bold text-white">Orders</h1>
+      <p className="mt-1 text-sm text-slate-400">Manage customer order statuses.</p>
 
       <div className="mt-6 space-y-4">
         {loading ? (
-          <p className="text-slate-400">Memuat...</p>
+          <p className="text-slate-400">Loading...</p>
         ) : orders.length === 0 ? (
-          <p className="text-slate-400">Belum ada pesanan.</p>
+          <p className="text-slate-400">No orders yet.</p>
         ) : (
           orders.map((order) => (
             <div

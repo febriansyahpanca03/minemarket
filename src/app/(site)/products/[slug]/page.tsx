@@ -27,8 +27,8 @@ export default async function ProductDetailPage({
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-6 flex items-center gap-1.5 text-sm text-slate-400">
-        <Link href="/produk" className="hover:text-white">
-          Produk
+        <Link href="/products" className="hover:text-white">
+          Products
         </Link>
         <CaretRight className="h-3.5 w-3.5" />
         <span className="text-slate-200">{product.name}</span>
@@ -68,7 +68,7 @@ export default async function ProductDetailPage({
           </div>
 
           <p className="mt-2 text-sm text-slate-400">
-            Stok tersedia: <span className="text-slate-200">{product.stock}</span>
+            In stock: <span className="text-slate-200">{product.stock}</span>
           </p>
 
           <p className="mt-6 whitespace-pre-line text-slate-300">{product.description}</p>

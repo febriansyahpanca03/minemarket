@@ -11,28 +11,28 @@ export default function Footer() {
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-500 text-slate-950">
                 <Cube weight="fill" className="h-5 w-5" />
               </span>
-              MineMarket
+              Minestack
             </Link>
             <p className="mt-3 max-w-xs text-sm text-slate-400">
-              Toko Minecraft terpercaya untuk akun, minecoin, diamond, dan bundle.
+              A trusted Minecraft store for accounts, minecoin, diamonds, and bundles.
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-slate-200">Belanja</p>
+            <p className="text-sm font-semibold text-slate-200">Shop</p>
             <ul className="mt-3 space-y-2 text-sm text-slate-400">
               <li>
-                <Link href="/produk" className="hover:text-white">
-                  Semua Produk
+                <Link href="/products" className="hover:text-white">
+                  All Products
                 </Link>
               </li>
               <li>
-                <Link href="/produk?category=akun-minecraft" className="hover:text-white">
-                  Akun Minecraft
+                <Link href="/products?category=minecraft-accounts" className="hover:text-white">
+                  Minecraft Accounts
                 </Link>
               </li>
               <li>
-                <Link href="/produk?category=minecoin" className="hover:text-white">
+                <Link href="/products?category=minecoin" className="hover:text-white">
                   Minecoin
                 </Link>
               </li>
@@ -40,16 +40,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-slate-200">Bantuan</p>
+            <p className="text-sm font-semibold text-slate-200">Support</p>
             <ul className="mt-3 space-y-2 text-sm text-slate-400">
               <li>
-                <Link href="/cek-pesanan" className="hover:text-white">
-                  Cek Pesanan
+                <Link href="/track-order" className="hover:text-white">
+                  Track Order
                 </Link>
               </li>
               <li>
-                <a href="mailto:halo@minemarket.id" className="hover:text-white">
-                  halo@minemarket.id
+                <a href="mailto:hello@minestack.app" className="hover:text-white">
+                  hello@minestack.app
                 </a>
               </li>
             </ul>
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-xs text-slate-500">
-          &copy; {new Date().getFullYear()} MineMarket. Semua hak dilindungi.
+          &copy; {new Date().getFullYear()} Minestack. All rights reserved.
         </div>
       </div>
     </footer>

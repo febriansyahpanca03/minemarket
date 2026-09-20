@@ -84,14 +84,14 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error ?? "Gagal menyimpan produk");
+        setError(data.error ?? "Failed to save product");
         return;
       }
 
-      router.push("/admin/produk");
+      router.push("/admin/products");
       router.refresh();
     } catch {
-      setError("Terjadi kesalahan, coba lagi.");
+      setError("Something went wrong, please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -100,7 +100,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl space-y-4">
       <div>
-        <label className="text-sm text-slate-400">Nama Produk</label>
+        <label className="text-sm text-slate-400">Product Name</label>
         <input
           required
           value={values.name}
@@ -115,13 +115,13 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           required
           value={values.slug}
           onChange={(e) => update("slug", e.target.value)}
-          placeholder="contoh: akun-minecraft-java"
+          placeholder="e.g. minecraft-java-account"
           className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
         />
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">Deskripsi</label>
+        <label className="text-sm text-slate-400">Description</label>
         <textarea
           required
           rows={4}
@@ -133,7 +133,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="text-sm text-slate-400">Harga</label>
+          <label className="text-sm text-slate-400">Price</label>
           <input
             required
             type="number"
@@ -144,7 +144,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           />
         </div>
         <div>
-          <label className="text-sm text-slate-400">Harga Diskon (opsional)</label>
+          <label className="text-sm text-slate-400">Discount Price (optional)</label>
           <input
             type="number"
             min={0}
@@ -157,7 +157,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="text-sm text-slate-400">Stok</label>
+          <label className="text-sm text-slate-400">Stock</label>
           <input
             required
             type="number"
@@ -168,23 +168,23 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           />
         </div>
         <div>
-          <label className="text-sm text-slate-400">Tipe Produk</label>
+          <label className="text-sm text-slate-400">Product Type</label>
           <select
             value={values.type}
             onChange={(e) => update("type", e.target.value)}
             className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
           >
-            <option value="ACCOUNT">Akun</option>
+            <option value="ACCOUNT">Account</option>
             <option value="DIAMOND">Diamond</option>
             <option value="MINECOIN">Minecoin</option>
             <option value="BUNDLE">Bundle</option>
-            <option value="OTHER">Lainnya</option>
+            <option value="OTHER">Other</option>
           </select>
         </div>
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">Kategori</label>
+        <label className="text-sm text-slate-400">Category</label>
         <select
           required
           value={values.categoryId}
@@ -192,7 +192,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
         >
           <option value="" disabled>
-            Pilih kategori
+            Select a category
           </option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
@@ -203,7 +203,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">URL Gambar (opsional)</label>
+        <label className="text-sm text-slate-400">Image URL (optional)</label>
         <input
           value={values.imageUrl}
           onChange={(e) => update("imageUrl", e.target.value)}
@@ -218,7 +218,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           checked={values.isActive}
           onChange={(e) => update("isActive", e.target.checked)}
         />
-        Aktif (tampil di toko)
+        Active (visible in the store)
       </label>
 
       {error && <p className="text-sm text-red-400">{error}</p>}
@@ -228,7 +228,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
         disabled={submitting}
         className="rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-emerald-400 disabled:opacity-60"
       >
-        {submitting ? "Menyimpan..." : "Simpan Produk"}
+        {submitting ? "Saving..." : "Save Product"}
       </button>
     </form>
   );

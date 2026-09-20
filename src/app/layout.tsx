@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MineMarket — Toko Minecraft Indonesia",
-  description: "Semua kebutuhan Minecraft ada di sini: akun, minecoins, diamond, dan bundle.",
+  title: "Minestack — Your Minecraft Store",
+  description: "Everything you need for Minecraft in one place: accounts, minecoins, diamonds, and bundles.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="id"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-100">{children}</body>

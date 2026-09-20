@@ -37,14 +37,14 @@ export async function POST(request: Request) {
 
   if (!parsed.success) {
     return NextResponse.json(
-      { error: "Data tidak valid", details: parsed.error.flatten() },
+      { error: "Invalid data", details: parsed.error.flatten() },
       { status: 400 }
     );
   }
 
   const existing = await prisma.product.findUnique({ where: { slug: parsed.data.slug } });
   if (existing) {
-    return NextResponse.json({ error: "Slug sudah digunakan" }, { status: 400 });
+    return NextResponse.json({ error: "Slug is already in use" }, { status: 400 });
   }
 
   const product = await prisma.product.create({ data: parsed.data });

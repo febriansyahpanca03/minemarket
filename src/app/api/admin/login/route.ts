@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const parsed = loginSchema.safeParse(body);
 
   if (!parsed.success) {
-    return NextResponse.json({ error: "Data tidak valid" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid data" }, { status: 400 });
   }
 
   const { username, password } = parsed.data;
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   const admin = await prisma.admin.findUnique({ where: { username } });
 
   if (!admin || !(await bcrypt.compare(password, admin.passwordHash))) {
-    return NextResponse.json({ error: "Username atau password salah" }, { status: 401 });
+    return NextResponse.json({ error: "Incorrect username or password" }, { status: 401 });
   }
 
   const token = signAdminToken({ adminId: admin.id, username: admin.username });

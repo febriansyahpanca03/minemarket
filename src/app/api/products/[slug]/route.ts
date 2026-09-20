@@ -13,7 +13,7 @@ export async function GET(
   });
 
   if (!product || !product.isActive) {
-    return NextResponse.json({ error: "Produk tidak ditemukan" }, { status: 404 });
+    return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
 
   return NextResponse.json({ product });
