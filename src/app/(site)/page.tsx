@@ -12,8 +12,8 @@ import {
   ArrowRight,
 } from "@phosphor-icons/react/dist/ssr";
 import { prisma } from "@/lib/prisma";
-import { formatRupiah } from "@/lib/format";
 import ProductCard from "@/components/product-card";
+import Price from "@/components/price";
 
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   "minecraft-accounts": GameController,
@@ -118,13 +118,15 @@ export default async function HomePage() {
                     </h2>
                   </div>
                   <div className="shrink-0 text-right">
-                    <p className="font-display text-2xl font-bold text-cream">
-                      {formatRupiah(featured.discountPrice ?? featured.price)}
-                    </p>
+                    <Price
+                      amount={featured.discountPrice ?? featured.price}
+                      className="font-display block text-2xl font-bold text-cream"
+                    />
                     {featured.discountPrice && (
-                      <p className="text-sm text-cream/45 line-through">
-                        {formatRupiah(featured.price)}
-                      </p>
+                      <Price
+                        amount={featured.price}
+                        className="text-sm text-cream/45 line-through"
+                      />
                     )}
                   </div>
                 </div>

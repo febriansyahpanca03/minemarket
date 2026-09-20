@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Cube, ReceiptX } from "@phosphor-icons/react/dist/ssr";
+import CurrencySwitcher from "@/components/currency-switcher";
 
 const links = [
   { href: "/products", label: "Products" },
@@ -30,13 +31,17 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <Link
-          href="/track-order"
-          className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-midnight transition hover:bg-gold-light active:scale-[0.98]"
-        >
-          <ReceiptX weight="bold" className="h-4 w-4" />
-          Track Order
-        </Link>
+        <div className="flex items-center gap-2.5">
+          <CurrencySwitcher />
+          <Link
+            href="/track-order"
+            className="flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-midnight transition hover:bg-gold-light active:scale-[0.98]"
+          >
+            <ReceiptX weight="bold" className="h-4 w-4" />
+            <span className="hidden sm:inline">Track Order</span>
+            <span className="sm:hidden">Track</span>
+          </Link>
+        </div>
       </div>
     </header>
   );

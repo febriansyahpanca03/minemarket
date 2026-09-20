@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CaretRight, Lightning, ShieldCheck, ChatCircle } from "@phosphor-icons/react/dist/ssr";
 import { prisma } from "@/lib/prisma";
-import { formatRupiah } from "@/lib/format";
 import BuyBox from "@/components/buy-box";
+import Price from "@/components/price";
 
 export default async function ProductDetailPage({
   params,
@@ -60,17 +60,20 @@ export default async function ProductDetailPage({
             {product.name}
           </h1>
 
-          <div className="mt-5 flex items-baseline gap-3">
-            <span className="font-display text-4xl font-bold text-cream">
-              {formatRupiah(finalPrice)}
-            </span>
+          <div className="mt-5 flex flex-wrap items-baseline gap-3">
+            <Price
+              amount={finalPrice}
+              className="font-display text-4xl font-bold text-cream"
+            />
             {product.discountPrice && (
               <>
-                <span className="text-lg text-cream/45 line-through">
-                  {formatRupiah(product.price)}
-                </span>
+                <Price
+                  amount={product.price}
+                  className="text-lg text-cream/45 line-through"
+                />
                 <span className="rounded-full bg-gold/12 px-2.5 py-1 text-xs font-bold text-gold">
-                  Save {formatRupiah(product.price - product.discountPrice)}
+                  Save{" "}
+                  <Price amount={product.price - product.discountPrice} />
                 </span>
               </>
             )}

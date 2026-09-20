@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Cube } from "@phosphor-icons/react/dist/ssr";
+import CurrencyNote from "@/components/currency-note";
 
 export default function Footer() {
   return (
@@ -58,6 +59,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-steel/35 pt-6 text-xs text-cream/45">
           &copy; {new Date().getFullYear()} Minestack. All rights reserved.
+          <CurrencyNote />
         </div>
       </div>
     </footer>

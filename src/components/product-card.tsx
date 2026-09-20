@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { formatRupiah } from "@/lib/format";
+import Price from "@/components/price";
 
 type ProductCardProps = {
   slug: string;
@@ -73,11 +73,12 @@ export default function ProductCard({
 
         <div className="mt-auto flex items-end justify-between gap-2 pt-4">
           <div>
-            <p className="font-display text-lg font-bold text-cream">
-              {formatRupiah(finalPrice)}
-            </p>
+            <Price
+              amount={finalPrice}
+              className="font-display block text-lg font-bold text-cream"
+            />
             {discountPrice && (
-              <p className="text-xs text-cream/40 line-through">{formatRupiah(price)}</p>
+              <Price amount={price} className="text-xs text-cream/40 line-through" />
             )}
           </div>
           {lowStock && (

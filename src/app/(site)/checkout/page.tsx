@@ -2,7 +2,8 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { formatRupiah } from "@/lib/format";
+import { useCurrency, useMoney } from "@/components/currency-provider";
+import { BASE_CURRENCY, formatMoney } from "@/lib/currency";
 
 type Product = {
   id: string;
@@ -23,6 +24,8 @@ function CheckoutForm() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const money = useMoney();
+  const { currency } = useCurrency();
 
   const [form, setForm] = useState({
     customerName: "",
@@ -96,12 +99,19 @@ function CheckoutForm() {
           <span className="text-cream/75">
             {product.name} x{quantity}
           </span>
-          <span className="text-cream/90">{formatRupiah(unitPrice * quantity)}</span>
+          <span className="text-cream/90">{money(unitPrice * quantity)}</span>
         </div>
         <div className="mt-4 flex items-center justify-between border-t border-steel/35 pt-4">
           <span className="font-semibold">Total</span>
-          <span className="text-xl font-bold text-gold">{formatRupiah(total)}</span>
+          <span className="font-display text-2xl font-bold text-gold">{money(total)}</span>
         </div>
+
+        {currency !== BASE_CURRENCY && (
+          <p className="mt-3 text-xs leading-relaxed text-cream/50">
+            Converted for reference. You pay {formatMoney(total, BASE_CURRENCY, 1)}, and your bank
+            sets the final rate.
+          </p>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} className="rounded-2xl border border-steel/35 bg-navy p-6">

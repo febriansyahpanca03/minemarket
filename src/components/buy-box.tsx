@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { formatRupiah } from "@/lib/format";
+import { useMoney } from "@/components/currency-provider";
 
 type BuyBoxProps = {
   productId: string;
@@ -13,6 +13,7 @@ type BuyBoxProps = {
 export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
+  const money = useMoney();
 
   const outOfStock = stock <= 0;
 
@@ -48,7 +49,7 @@ export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
       <div className="mt-5 flex items-center justify-between border-t border-steel/35 pt-5">
         <span className="text-sm text-cream/60">Total</span>
         <span className="font-display text-2xl font-bold text-gold">
-          {formatRupiah(price * quantity)}
+          {money(price * quantity)}
         </span>
       </div>
 

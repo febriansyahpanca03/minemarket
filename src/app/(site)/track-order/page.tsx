@@ -2,7 +2,8 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { formatRupiah } from "@/lib/format";
+import { useCurrency, useMoney } from "@/components/currency-provider";
+import { BASE_CURRENCY, formatMoney } from "@/lib/currency";
 
 type OrderItem = {
   id: string;
@@ -39,6 +40,8 @@ function TrackOrderContent() {
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const money = useMoney();
+  const { currency } = useCurrency();
 
   async function handleSearch(searchCode: string) {
     if (!searchCode) return;
@@ -148,7 +151,7 @@ function TrackOrderContent() {
                 <span className="text-cream/75">
                   {item.product.name} x{item.quantity}
                 </span>
-                <span className="text-cream/90">{formatRupiah(item.price * item.quantity)}</span>
+                <span className="text-cream/90">{money(item.price * item.quantity)}</span>
               </div>
             ))}
           </div>
@@ -156,12 +159,18 @@ function TrackOrderContent() {
           <div className="mt-4 flex justify-between border-t border-steel/35 pt-4">
             <span className="font-semibold">Total</span>
             <span className="text-xl font-bold text-gold">
-              {formatRupiah(order.totalAmount)}
+              {money(order.totalAmount)}
             </span>
           </div>
 
           {order.paymentMethod && (
             <p className="mt-2 text-sm text-cream/60">Paid with {order.paymentMethod}</p>
+          )}
+
+          {currency !== BASE_CURRENCY && (
+            <p className="mt-1 text-xs text-cream/45">
+              Charged as {formatMoney(order.totalAmount, BASE_CURRENCY, 1)}.
+            </p>
           )}
         </div>
       )}

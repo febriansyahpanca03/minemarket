@@ -16,7 +16,7 @@ export default async function AdminOverviewPage() {
     { label: "Total Products", value: productCount },
     { label: "Total Orders", value: orderCount },
     { label: "Awaiting Payment", value: pendingCount },
-    { label: "Total Revenue", value: formatRupiah(revenueAgg._sum.totalAmount ?? 0) },
+    { label: "Total Revenue (IDR)", value: formatRupiah(revenueAgg._sum.totalAmount ?? 0) },
   ];
 
   return (
