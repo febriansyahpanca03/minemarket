@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream focus:border-gold"
             />
           </div>
 
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream focus:border-gold"
             />
           </div>
         </div>

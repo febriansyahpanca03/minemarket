@@ -11,7 +11,7 @@ export default function Footer() {
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold text-midnight">
                 <Cube weight="fill" className="h-5 w-5" />
               </span>
-              <span className="pixel text-xl">Minestack</span>
+              <span className="font-display text-xl">Minestack</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm text-cream/60">
               We sell Minecraft accounts, coins and skins. That's the whole business.

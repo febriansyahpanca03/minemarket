@@ -22,12 +22,14 @@ type Order = {
 };
 
 const statusLabel: Record<string, string> = {
-  PENDING: "Awaiting Payment",
+  PENDING: "Awaiting payment",
   PAID: "Paid",
   PROCESSING: "Processing",
-  COMPLETED: "Completed",
+  COMPLETED: "Delivered",
   CANCELLED: "Cancelled",
 };
+
+const trackSteps = ["PENDING", "PAID", "PROCESSING", "COMPLETED"];
 
 function TrackOrderContent() {
   const searchParams = useSearchParams();
@@ -68,7 +70,7 @@ function TrackOrderContent() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
-      <h1 className="pixel text-3xl font-bold">Where's my order?</h1>
+      <h1 className="font-display text-3xl font-bold">Where's my order?</h1>
       <p className="mt-2 text-cream/60">Paste the code from your receipt and we'll pull it up.</p>
 
       <form
@@ -82,7 +84,7 @@ function TrackOrderContent() {
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="e.g. MST-20260918-AB12CD"
-          className="flex-1 rounded-lg border border-steel/35 bg-navy px-4 py-3 text-sm outline-none focus:border-gold"
+          className="flex-1 rounded-lg border border-steel/35 bg-navy px-4 py-3 text-sm focus:border-gold"
         />
         <button
           type="submit"
@@ -93,18 +95,51 @@ function TrackOrderContent() {
         </button>
       </form>
 
-      {error && <p className="mt-6 text-sm text-danger">{error}</p>}
+      {error && (
+        <p className="mt-6 rounded-xl border border-danger/30 bg-danger/10 px-4 py-3 text-sm text-danger">
+          {error}
+        </p>
+      )}
 
       {order && (
         <div className="mt-8 rounded-2xl border border-steel/35 bg-navy p-6">
           <div className="flex items-center justify-between">
             <span className="font-mono text-sm text-cream/60">{order.orderCode}</span>
-            <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-semibold text-gold">
+            <span
+              className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                order.status === "CANCELLED"
+                  ? "bg-danger/15 text-danger"
+                  : "bg-gold/12 text-gold"
+              }`}
+            >
               {statusLabel[order.status] ?? order.status}
             </span>
           </div>
 
-          <p className="mt-4 text-sm text-cream/60">Placed by</p>
+          {order.status !== "CANCELLED" && (
+            <ol className="mt-6 flex gap-1.5">
+              {trackSteps.map((step, i) => {
+                const current = trackSteps.indexOf(order.status);
+                const done = i <= current;
+                return (
+                  <li key={step} className="flex-1">
+                    <span
+                      className={`block h-1 rounded-full ${done ? "bg-gold" : "bg-steel/35"}`}
+                    />
+                    <span
+                      className={`mt-2 block text-[11px] font-medium ${
+                        done ? "text-cream/80" : "text-cream/40"
+                      }`}
+                    >
+                      {statusLabel[step]}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+
+          <p className="mt-6 text-sm text-cream/60">Placed by</p>
           <p className="font-semibold">{order.customerName}</p>
 
           <div className="mt-4 space-y-2 border-t border-steel/35 pt-4">

@@ -105,7 +105,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           required
           value={values.name}
           onChange={(e) => update("name", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
         />
       </div>
 
@@ -116,7 +116,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           value={values.slug}
           onChange={(e) => update("slug", e.target.value)}
           placeholder="e.g. minecraft-java-account"
-          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
         />
       </div>
 
@@ -127,7 +127,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           rows={4}
           value={values.description}
           onChange={(e) => update("description", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
         />
       </div>
 
@@ -140,7 +140,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
             min={0}
             value={values.price}
             onChange={(e) => update("price", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
           />
         </div>
         <div>
@@ -150,7 +150,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
             min={0}
             value={values.discountPrice}
             onChange={(e) => update("discountPrice", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
           />
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
             min={0}
             value={values.stock}
             onChange={(e) => update("stock", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
           />
         </div>
         <div>
@@ -172,7 +172,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           <select
             value={values.type}
             onChange={(e) => update("type", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
           >
             <option value="ACCOUNT">Account</option>
             <option value="DIAMOND">Diamond</option>
@@ -189,7 +189,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           required
           value={values.categoryId}
           onChange={(e) => update("categoryId", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
         >
           <option value="" disabled>
             Select a category
@@ -208,7 +208,7 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
           value={values.imageUrl}
           onChange={(e) => update("imageUrl", e.target.value)}
           placeholder="https://..."
-          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream focus:border-gold"
         />
       </div>
 

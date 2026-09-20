@@ -114,7 +114,7 @@ function CheckoutForm() {
               required
               value={form.customerName}
               onChange={(e) => setForm({ ...form, customerName: e.target.value })}
-              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm outline-none focus:border-gold"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm focus:border-gold"
             />
           </div>
 
@@ -125,7 +125,7 @@ function CheckoutForm() {
               type="email"
               value={form.customerEmail}
               onChange={(e) => setForm({ ...form, customerEmail: e.target.value })}
-              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm outline-none focus:border-gold"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm focus:border-gold"
             />
           </div>
 
@@ -135,7 +135,7 @@ function CheckoutForm() {
               required
               value={form.customerPhone}
               onChange={(e) => setForm({ ...form, customerPhone: e.target.value })}
-              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm outline-none focus:border-gold"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm focus:border-gold"
             />
           </div>
 
@@ -144,7 +144,7 @@ function CheckoutForm() {
             <select
               value={form.paymentMethod}
               onChange={(e) => setForm({ ...form, paymentMethod: e.target.value })}
-              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm outline-none focus:border-gold"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm focus:border-gold"
             >
               <option value="QRIS">QRIS</option>
               <option value="Bank Transfer">Bank Transfer</option>
@@ -170,7 +170,7 @@ function CheckoutForm() {
 export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <h1 className="pixel text-3xl font-bold">Checkout</h1>
+      <h1 className="font-display text-3xl font-bold">Checkout</h1>
       <p className="mt-2 text-cream/60">Tell us where to send it and we'll get going.</p>
 
       <div className="mt-8">

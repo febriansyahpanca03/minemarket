@@ -23,7 +23,7 @@ export default async function ProductsPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="pixel text-3xl font-bold">The shop</h1>
+      <h1 className="font-display text-3xl font-bold">The shop</h1>
       <p className="mt-2 text-cream/60">Everything we have in stock right now.</p>
 
       <div className="mt-6 flex flex-wrap gap-2">
@@ -53,9 +53,20 @@ export default async function ProductsPage({
       </div>
 
       {products.length === 0 ? (
-        <p className="mt-10 text-cream/60">Nothing in this category at the moment.</p>
+        <div className="mt-12 rounded-2xl border border-dashed border-steel/40 px-6 py-16 text-center">
+          <p className="font-display text-lg text-cream">Nothing here right now</p>
+          <p className="mt-2 text-sm text-cream/55">
+            This category is empty at the moment. Try another one.
+          </p>
+          <Link
+            href="/products"
+            className="mt-6 inline-block rounded-full border border-steel/50 px-5 py-2 text-sm font-semibold text-cream transition hover:border-gold hover:text-gold"
+          >
+            See everything
+          </Link>
+        </div>
       ) : (
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -65,6 +76,7 @@ export default async function ProductsPage({
               discountPrice={product.discountPrice}
               imageUrl={product.imageUrl}
               categoryName={product.category.name}
+              stock={product.stock}
             />
           ))}
         </div>

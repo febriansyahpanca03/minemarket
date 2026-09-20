@@ -27,34 +27,38 @@ export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
         <div className="flex items-center gap-3">
           <button
             type="button"
+            aria-label="Fewer"
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            className="h-8 w-8 rounded-full border border-steel/55 text-lg leading-none hover:border-steel/80"
+            className="h-9 w-9 rounded-full border border-steel/55 text-lg leading-none transition hover:border-gold hover:text-gold"
           >
             -
           </button>
-          <span className="w-8 text-center font-semibold">{quantity}</span>
+          <span className="font-display w-8 text-center text-lg font-semibold">{quantity}</span>
           <button
             type="button"
+            aria-label="More"
             onClick={() => setQuantity((q) => Math.min(stock, q + 1))}
-            className="h-8 w-8 rounded-full border border-steel/55 text-lg leading-none hover:border-steel/80"
+            className="h-9 w-9 rounded-full border border-steel/55 text-lg leading-none transition hover:border-gold hover:text-gold"
           >
             +
           </button>
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-steel/35 pt-4">
+      <div className="mt-5 flex items-center justify-between border-t border-steel/35 pt-5">
         <span className="text-sm text-cream/60">Total</span>
-        <span className="text-xl font-bold text-cream">{formatRupiah(price * quantity)}</span>
+        <span className="font-display text-2xl font-bold text-gold">
+          {formatRupiah(price * quantity)}
+        </span>
       </div>
 
       <button
         type="button"
         disabled={outOfStock}
         onClick={handleBuyNow}
-        className="mt-6 w-full rounded-full bg-gold py-3 font-semibold text-midnight transition hover:bg-gold-light disabled:cursor-not-allowed disabled:bg-steel/40 disabled:text-cream/60"
+        className="mt-6 w-full rounded-full bg-gold py-3.5 font-semibold text-midnight transition hover:bg-gold-light active:scale-[0.99] disabled:cursor-not-allowed disabled:bg-steel/40 disabled:text-cream/60"
       >
-        {outOfStock ? "Out of Stock" : "Buy Now"}
+        {outOfStock ? "Out of stock" : "Buy now"}
       </button>
     </div>
   );

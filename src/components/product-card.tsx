@@ -9,6 +9,7 @@ type ProductCardProps = {
   discountPrice: number | null;
   imageUrl: string | null;
   categoryName: string;
+  stock?: number;
 };
 
 export default function ProductCard({
@@ -18,16 +19,19 @@ export default function ProductCard({
   discountPrice,
   imageUrl,
   categoryName,
+  stock,
 }: ProductCardProps) {
   const finalPrice = discountPrice ?? price;
   const discountPercent = discountPrice
     ? Math.round(((price - discountPrice) / price) * 100)
     : null;
+  const lowStock = typeof stock === "number" && stock > 0 && stock <= 20;
+  const soldOut = stock === 0;
 
   return (
     <Link
       href={`/products/${slug}`}
-      className="group overflow-hidden rounded-2xl border border-steel/35 bg-navy transition duration-300 hover:-translate-y-1 hover:border-gold/45 hover:shadow-[0_16px_40px_-20px_rgba(212,175,55,0.5)]"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-steel/35 bg-navy transition duration-300 hover:-translate-y-1 hover:border-gold/45"
     >
       <div className="relative aspect-square w-full overflow-hidden bg-steel/20">
         {imageUrl ? (
@@ -40,28 +44,44 @@ export default function ProductCard({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-sm text-cream/35">
-            No Image
+            No image
           </div>
         )}
+
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-navy to-transparent" />
 
         {discountPercent && (
           <span className="absolute left-3 top-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-midnight">
             -{discountPercent}%
           </span>
         )}
+
+        {soldOut && (
+          <span className="absolute right-3 top-3 rounded-full bg-midnight/85 px-2.5 py-1 text-xs font-semibold text-cream/70">
+            Sold out
+          </span>
+        )}
       </div>
 
-      <div className="p-4">
-        <p className="text-xs font-medium uppercase tracking-wide text-gold">
+      <div className="flex flex-1 flex-col p-4">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-cream/45">
           {categoryName}
         </p>
-        <h3 className="pixel mt-1 line-clamp-2 text-[15px] font-semibold leading-snug text-cream">
+        <h3 className="font-display mt-1.5 line-clamp-2 text-[15px] font-semibold leading-snug text-cream">
           {name}
         </h3>
-        <div className="mt-2 flex items-baseline gap-2">
-          <span className="font-bold text-cream">{formatRupiah(finalPrice)}</span>
-          {discountPrice && (
-            <span className="text-xs text-cream/45 line-through">{formatRupiah(price)}</span>
+
+        <div className="mt-auto flex items-end justify-between gap-2 pt-4">
+          <div>
+            <p className="font-display text-lg font-bold text-cream">
+              {formatRupiah(finalPrice)}
+            </p>
+            {discountPrice && (
+              <p className="text-xs text-cream/40 line-through">{formatRupiah(price)}</p>
+            )}
+          </div>
+          {lowStock && (
+            <span className="pb-1 text-[11px] font-medium text-gold">{stock} left</span>
           )}
         </div>
       </div>

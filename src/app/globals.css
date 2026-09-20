@@ -3,7 +3,7 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-pixel: var(--font-pixelify);
+  --font-display: var(--font-space-grotesk);
 
   --color-midnight: #0d1b2a;
   --color-navy: #1b263b;
@@ -14,11 +14,25 @@
   --color-danger: #e0736a;
 }
 
-/* Pixel type renders crisper with smoothing off, so the blocks stay square. */
-@utility pixel {
-  font-family: var(--font-pixel), monospace;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+/* Faint block grid, a nod to the game without leaning on decoration. */
+@utility block-grid {
+  background-image:
+    linear-gradient(to right, rgb(65 90 119 / 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(65 90 119 / 0.22) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 60% at 30% 0%, #000 0%, transparent 75%);
+}
+
+@utility card-surface {
+  background-color: var(--color-navy);
+  border: 1px solid rgb(65 90 119 / 0.35);
 }
 
 ::selection {
