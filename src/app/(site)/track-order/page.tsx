@@ -68,8 +68,8 @@ function TrackOrderContent() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
-      <h1 className="text-3xl font-bold">Track Order</h1>
-      <p className="mt-2 text-cream/60">Enter your order code to check its status.</p>
+      <h1 className="pixel text-3xl font-bold">Where's my order?</h1>
+      <p className="mt-2 text-cream/60">Paste the code from your receipt and we'll pull it up.</p>
 
       <form
         onSubmit={(e) => {
@@ -89,7 +89,7 @@ function TrackOrderContent() {
           disabled={loading}
           className="rounded-lg bg-gold px-6 py-3 font-semibold text-midnight hover:bg-gold-light disabled:opacity-60"
         >
-          {loading ? "Searching..." : "Search"}
+          {loading ? "Looking..." : "Look up"}
         </button>
       </form>
 
@@ -104,7 +104,7 @@ function TrackOrderContent() {
             </span>
           </div>
 
-          <p className="mt-4 text-sm text-cream/60">Ordered by</p>
+          <p className="mt-4 text-sm text-cream/60">Placed by</p>
           <p className="font-semibold">{order.customerName}</p>
 
           <div className="mt-4 space-y-2 border-t border-steel/35 pt-4">
@@ -126,7 +126,7 @@ function TrackOrderContent() {
           </div>
 
           {order.paymentMethod && (
-            <p className="mt-2 text-sm text-cream/60">Payment: {order.paymentMethod}</p>
+            <p className="mt-2 text-sm text-cream/60">Paid with {order.paymentMethod}</p>
           )}
         </div>
       )}

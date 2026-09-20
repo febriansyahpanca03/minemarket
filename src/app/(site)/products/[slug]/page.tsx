@@ -56,7 +56,7 @@ export default async function ProductDetailPage({
           <p className="text-xs font-semibold uppercase tracking-wide text-gold">
             {product.category.name}
           </p>
-          <h1 className="mt-2 text-3xl font-bold">{product.name}</h1>
+          <h1 className="pixel mt-2 text-3xl font-bold leading-tight">{product.name}</h1>
 
           <div className="mt-4 flex items-baseline gap-3">
             <span className="text-3xl font-black text-cream">{formatRupiah(finalPrice)}</span>
@@ -68,7 +68,7 @@ export default async function ProductDetailPage({
           </div>
 
           <p className="mt-2 text-sm text-cream/60">
-            In stock: <span className="text-cream/90">{product.stock}</span>
+            <span className="text-cream/90">{product.stock}</span> left in stock
           </p>
 
           <p className="mt-6 whitespace-pre-line text-cream/75">{product.description}</p>

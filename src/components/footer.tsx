@@ -11,10 +11,10 @@ export default function Footer() {
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold text-midnight">
                 <Cube weight="fill" className="h-5 w-5" />
               </span>
-              Minestack
+              <span className="pixel text-xl">Minestack</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm text-cream/60">
-              A trusted Minecraft store for accounts, minecoin, diamonds, and bundles.
+              We sell Minecraft accounts, coins and skins. That's the whole business.
             </p>
           </div>
 
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-cream/90">Support</p>
+            <p className="text-sm font-semibold text-cream/90">Need help</p>
             <ul className="mt-3 space-y-2 text-sm text-cream/60">
               <li>
                 <Link href="/track-order" className="hover:text-cream">

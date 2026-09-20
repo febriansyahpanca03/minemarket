@@ -60,13 +60,13 @@ export default function AdminOrdersPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-cream">Orders</h1>
-      <p className="mt-1 text-sm text-cream/60">Manage customer order statuses.</p>
+      <p className="mt-1 text-sm text-cream/60">Move orders along as you fill them.</p>
 
       <div className="mt-6 space-y-4">
         {loading ? (
           <p className="text-cream/60">Loading...</p>
         ) : orders.length === 0 ? (
-          <p className="text-cream/60">No orders yet.</p>
+          <p className="text-cream/60">Nothing has come in yet.</p>
         ) : (
           orders.map((order) => (
             <div

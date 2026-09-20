@@ -21,7 +21,7 @@ export default function AdminSidebar() {
 
   return (
     <aside className="flex w-60 shrink-0 flex-col border-r border-steel/35 bg-navy p-4">
-      <div className="mb-8 px-2 text-lg font-bold text-cream">Minestack Admin</div>
+      <div className="pixel mb-8 px-2 text-lg font-bold text-cream">Minestack Admin</div>
 
       <nav className="flex-1 space-y-1">
         {links.map((link) => {

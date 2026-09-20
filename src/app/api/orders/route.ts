@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     const product = products.find((p) => p.id === item.productId)!;
     if (product.stock < item.quantity) {
       return NextResponse.json(
-        { error: `Not enough stock for ${product.name}` },
+        { error: `We're short on ${product.name} right now. Try a smaller amount.` },
         { status: 400 }
       );
     }

@@ -55,7 +55,9 @@ export default function ProductCard({
         <p className="text-xs font-medium uppercase tracking-wide text-gold">
           {categoryName}
         </p>
-        <h3 className="mt-1 line-clamp-2 font-semibold text-cream">{name}</h3>
+        <h3 className="pixel mt-1 line-clamp-2 text-[15px] font-semibold leading-snug text-cream">
+          {name}
+        </h3>
         <div className="mt-2 flex items-baseline gap-2">
           <span className="font-bold text-cream">{formatRupiah(finalPrice)}</span>
           {discountPrice && (

@@ -9,7 +9,7 @@ export default function Navbar() {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold text-midnight">
             <Cube weight="fill" className="h-5 w-5" />
           </span>
-          <span className="text-lg">Minestack</span>
+          <span className="pixel text-xl">Minestack</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-cream/75 md:flex">

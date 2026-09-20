@@ -74,7 +74,7 @@ function CheckoutForm() {
   }
 
   if (!productId) {
-    return <p className="text-cream/60">Product not found. Please choose a product first.</p>;
+    return <p className="text-cream/60">Nothing to check out. Pick a product first.</p>;
   }
 
   if (loading) {
@@ -91,7 +91,7 @@ function CheckoutForm() {
   return (
     <div className="grid gap-10 md:grid-cols-2">
       <div className="rounded-2xl border border-steel/35 bg-navy p-6">
-        <h2 className="font-semibold text-cream/90">Order Summary</h2>
+        <h2 className="font-semibold text-cream/90">What you're getting</h2>
         <div className="mt-4 flex items-center justify-between text-sm">
           <span className="text-cream/75">
             {product.name} x{quantity}
@@ -105,7 +105,7 @@ function CheckoutForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="rounded-2xl border border-steel/35 bg-navy p-6">
-        <h2 className="font-semibold text-cream/90">Buyer Details</h2>
+        <h2 className="font-semibold text-cream/90">Where to send it</h2>
 
         <div className="mt-4 space-y-4">
           <div>
@@ -160,7 +160,7 @@ function CheckoutForm() {
           disabled={submitting}
           className="mt-6 w-full rounded-full bg-gold py-3 font-semibold text-midnight transition hover:bg-gold-light disabled:opacity-60"
         >
-          {submitting ? "Processing..." : "Place Order"}
+          {submitting ? "Sending..." : "Place order"}
         </button>
       </form>
     </div>
@@ -170,8 +170,8 @@ function CheckoutForm() {
 export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <h1 className="text-3xl font-bold">Checkout</h1>
-      <p className="mt-2 text-cream/60">Fill in your details to complete the order.</p>
+      <h1 className="pixel text-3xl font-bold">Checkout</h1>
+      <p className="mt-2 text-cream/60">Tell us where to send it and we'll get going.</p>
 
       <div className="mt-8">
         <Suspense fallback={<p className="text-cream/60">Loading...</p>}>

@@ -42,7 +42,7 @@ export default function AdminProductsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-cream">Products</h1>
-          <p className="mt-1 text-sm text-cream/60">Manage your store's product catalog.</p>
+          <p className="mt-1 text-sm text-cream/60">Everything listed in the shop.</p>
         </div>
         <Link
           href="/admin/products/new"
@@ -74,7 +74,7 @@ export default function AdminProductsPage() {
             ) : products.length === 0 ? (
               <tr>
                 <td colSpan={6} className="px-4 py-6 text-center text-cream/60">
-                  No products yet.
+                  Nothing listed yet.
                 </td>
               </tr>
             ) : (

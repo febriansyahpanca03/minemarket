@@ -32,7 +32,8 @@ async function main() {
     {
       name: "Minecraft Java & Bedrock Edition Account",
       slug: "minecraft-java-bedrock-account",
-      description: "Original Minecraft Java + Bedrock account, full access, replacement guarantee.",
+      description:
+        "One account, both editions. You get the login, change the email and password, and it's yours. We check every account before it goes out, and if it ever stops working send us the order code and we'll swap it.",
       price: 150000,
       discountPrice: 129000,
       stock: 25,
@@ -43,7 +44,8 @@ async function main() {
     {
       name: "Minecoin 1720",
       slug: "minecoin-1720",
-      description: "1720 Minecoin top up for Minecraft Bedrock Edition, instant delivery.",
+      description:
+        "1720 Minecoins for Bedrock. Leave your gamertag at checkout and the coins land in your account, usually within a few minutes. Enough for a decent skin pack and change left over.",
       price: 219000,
       discountPrice: null,
       stock: 50,
@@ -54,7 +56,8 @@ async function main() {
     {
       name: "Minecoin 320",
       slug: "minecoin-320",
-      description: "320 Minecoin top up for Minecraft Bedrock Edition, instant delivery.",
+      description:
+        "320 Minecoins for Bedrock. The small top up, good for one skin or a map you had your eye on. Drop your gamertag at checkout and we'll send it over.",
       price: 45000,
       discountPrice: 39000,
       stock: 80,
@@ -65,7 +68,8 @@ async function main() {
     {
       name: "Autumn Bundle - Account + Custom Skin",
       slug: "autumn-bundle-account-custom-skin",
-      description: "Minecraft Java & Bedrock account bundle plus an exclusive autumn custom skin.",
+      description:
+        "A Java and Bedrock account plus a custom skin we put together for autumn. Cheaper than buying the two on their own, and the skin is only in this bundle.",
       price: 249999,
       discountPrice: 228999,
       stock: 15,
@@ -76,7 +80,8 @@ async function main() {
     {
       name: "Diamond 500",
       slug: "diamond-500",
-      description: "500 Diamond top up for your favorite Minecraft servers.",
+      description:
+        "500 diamonds dropped straight into your account on the server you play. Tell us which server and your username at checkout so we send it to the right place.",
       price: 75000,
       discountPrice: null,
       stock: 40,

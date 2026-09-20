@@ -36,20 +36,21 @@ export default async function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-16 pb-20 md:grid-cols-[1.1fr_1fr] md:items-center md:pt-20">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">
-              Your Minecraft Store
+              Minecraft shop
             </p>
-            <h1 className="mt-4 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-              Everything you need for Minecraft, in one place.
+            <h1 className="pixel mt-4 text-4xl font-bold leading-[1.15] sm:text-5xl">
+              Get back to building. We handle the rest.
             </h1>
             <p className="mt-4 max-w-md text-cream/75">
-              Accounts, minecoin, diamonds, and bundles with instant delivery and fair prices.
+              Accounts, Minecoins, diamonds and skin bundles. Most orders are done a few minutes
+              after you pay.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/products"
                 className="rounded-full bg-gold px-6 py-3 font-semibold text-midnight transition hover:bg-gold-light active:scale-[0.98]"
               >
-                Shop Now
+                See what's in stock
               </Link>
               <Link
                 href="/track-order"
@@ -100,18 +101,18 @@ export default async function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Latest Products</h2>
+          <h2 className="pixel text-2xl font-bold">Just added</h2>
           <Link
             href="/products"
             className="text-sm font-semibold text-gold hover:text-gold-light"
           >
-            View all
+            See all
           </Link>
         </div>
 
         {products.length === 0 ? (
           <p className="mt-8 text-cream/60">
-            No products yet. Add products from the admin dashboard to start selling.
+            Shelves are empty. Add something from the admin dashboard.
           </p>
         ) : (
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -135,32 +136,32 @@ export default async function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-3xl border border-steel/35 bg-navy p-8 md:col-span-2">
               <ShieldCheck weight="fill" className="h-8 w-8 text-gold" />
-              <h3 className="mt-4 text-xl font-bold text-cream">Secure checkout, replacement guarantee</h3>
+              <h3 className="pixel mt-4 text-xl font-bold text-cream">If it breaks, we swap it</h3>
               <p className="mt-2 max-w-md text-sm text-cream/60">
-                Every account and top up is verified before delivery. If something's wrong, we
-                replace it, no hassle.
+                Every account gets logged into and checked before it goes out. If yours stops
+                working later, send us the order code and we'll sort you a new one.
               </p>
             </div>
             <div className="rounded-3xl border border-steel/35 bg-navy p-8">
               <Lightning weight="fill" className="h-8 w-8 text-gold" />
-              <h3 className="mt-4 text-lg font-bold text-cream">Instant delivery</h3>
+              <h3 className="pixel mt-4 text-lg font-bold text-cream">Usually a few minutes</h3>
               <p className="mt-2 text-sm text-cream/60">
-                Orders are processed within minutes of payment confirmation.
+                We start the moment your payment clears. Late nights and weekends included.
               </p>
             </div>
             <div className="rounded-3xl border border-steel/35 bg-navy p-8">
               <Headset weight="fill" className="h-8 w-8 text-gold" />
-              <h3 className="mt-4 text-lg font-bold text-cream">Support on hand</h3>
+              <h3 className="pixel mt-4 text-lg font-bold text-cream">You get a person</h3>
               <p className="mt-2 text-sm text-cream/60">
-                Our team is ready to help every day through the track order page.
+                No ticket queue. Look up your order code and message us from there.
               </p>
             </div>
             <div className="rounded-3xl border border-steel/35 bg-navy p-8 md:col-span-2">
               <p className="text-base text-cream/90">
-                "Bought minecoin here and it landed in under 10 minutes. Super fast."
+                "Ordered coins at 2am expecting to wait until morning. Had them in six minutes."
               </p>
               <p className="mt-3 text-sm font-semibold text-cream/60">
-                Marcus Webb, Minestack customer
+                Tom Vasquez, bought Minecoin 1720
               </p>
             </div>
           </div>
