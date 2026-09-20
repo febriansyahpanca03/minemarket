@@ -39,43 +39,43 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-midnight px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm rounded-2xl border border-white/10 bg-slate-900 p-8"
+        className="w-full max-w-sm rounded-2xl border border-steel/35 bg-navy p-8"
       >
-        <h1 className="text-2xl font-bold text-white">Admin Login</h1>
-        <p className="mt-1 text-sm text-slate-400">Minestack Dashboard</p>
+        <h1 className="text-2xl font-bold text-cream">Admin Login</h1>
+        <p className="mt-1 text-sm text-cream/60">Minestack Dashboard</p>
 
         <div className="mt-6 space-y-4">
           <div>
-            <label className="text-sm text-slate-400">Username</label>
+            <label className="text-sm text-cream/60">Username</label>
             <input
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-white/10 bg-slate-800 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream outline-none focus:border-gold"
             />
           </div>
 
           <div>
-            <label className="text-sm text-slate-400">Password</label>
+            <label className="text-sm text-cream/60">Password</label>
             <input
               required
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-white/10 bg-slate-800 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+              className="mt-1 w-full rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream outline-none focus:border-gold"
             />
           </div>
         </div>
 
-        {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
+        {error && <p className="mt-4 text-sm text-danger">{error}</p>}
 
         <button
           type="submit"
           disabled={loading}
-          className="mt-6 w-full rounded-lg bg-emerald-500 py-2.5 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:opacity-60"
+          className="mt-6 w-full rounded-lg bg-gold py-2.5 font-semibold text-midnight transition hover:bg-gold-light disabled:opacity-60"
         >
           {loading ? "Signing in..." : "Sign In"}
         </button>

@@ -41,20 +41,20 @@ export default function AdminProductsPage() {
     <div>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Products</h1>
-          <p className="mt-1 text-sm text-slate-400">Manage your store's product catalog.</p>
+          <h1 className="text-2xl font-bold text-cream">Products</h1>
+          <p className="mt-1 text-sm text-cream/60">Manage your store's product catalog.</p>
         </div>
         <Link
           href="/admin/products/new"
-          className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-emerald-400"
+          className="rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-midnight hover:bg-gold-light"
         >
           + Add Product
         </Link>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
+      <div className="mt-6 overflow-hidden rounded-2xl border border-steel/35">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-900 text-slate-400">
+          <thead className="bg-navy text-cream/60">
             <tr>
               <th className="px-4 py-3 font-medium">Name</th>
               <th className="px-4 py-3 font-medium">Category</th>
@@ -64,34 +64,34 @@ export default function AdminProductsPage() {
               <th className="px-4 py-3 font-medium">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/5 bg-slate-950">
+          <tbody className="divide-y divide-steel/25 bg-midnight">
             {loading ? (
               <tr>
-                <td colSpan={6} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={6} className="px-4 py-6 text-center text-cream/60">
                   Loading...
                 </td>
               </tr>
             ) : products.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={6} className="px-4 py-6 text-center text-cream/60">
                   No products yet.
                 </td>
               </tr>
             ) : (
               products.map((product) => (
                 <tr key={product.id}>
-                  <td className="px-4 py-3 text-slate-200">{product.name}</td>
-                  <td className="px-4 py-3 text-slate-400">{product.category.name}</td>
-                  <td className="px-4 py-3 text-slate-200">
+                  <td className="px-4 py-3 text-cream/90">{product.name}</td>
+                  <td className="px-4 py-3 text-cream/60">{product.category.name}</td>
+                  <td className="px-4 py-3 text-cream/90">
                     {formatRupiah(product.discountPrice ?? product.price)}
                   </td>
-                  <td className="px-4 py-3 text-slate-200">{product.stock}</td>
+                  <td className="px-4 py-3 text-cream/90">{product.stock}</td>
                   <td className="px-4 py-3">
                     <span
                       className={`rounded-full px-2 py-1 text-xs font-semibold ${
                         product.isActive
-                          ? "bg-emerald-500/10 text-emerald-400"
-                          : "bg-slate-700 text-slate-400"
+                          ? "bg-gold/12 text-gold"
+                          : "bg-steel/40 text-cream/60"
                       }`}
                     >
                       {product.isActive ? "Active" : "Inactive"}
@@ -101,13 +101,13 @@ export default function AdminProductsPage() {
                     <div className="flex gap-3">
                       <Link
                         href={`/admin/products/${product.id}`}
-                        className="text-emerald-400 hover:text-emerald-300"
+                        className="text-gold hover:text-gold-light"
                       >
                         Edit
                       </Link>
                       <button
                         onClick={() => handleDelete(product.id)}
-                        className="text-red-400 hover:text-red-300"
+                        className="text-danger transition hover:text-danger/75"
                       >
                         Delete
                       </button>

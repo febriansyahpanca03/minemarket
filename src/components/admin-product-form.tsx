@@ -100,79 +100,79 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl space-y-4">
       <div>
-        <label className="text-sm text-slate-400">Product Name</label>
+        <label className="text-sm text-cream/60">Product Name</label>
         <input
           required
           value={values.name}
           onChange={(e) => update("name", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
         />
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">Slug (URL)</label>
+        <label className="text-sm text-cream/60">Slug (URL)</label>
         <input
           required
           value={values.slug}
           onChange={(e) => update("slug", e.target.value)}
           placeholder="e.g. minecraft-java-account"
-          className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
         />
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">Description</label>
+        <label className="text-sm text-cream/60">Description</label>
         <textarea
           required
           rows={4}
           value={values.description}
           onChange={(e) => update("description", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
         />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="text-sm text-slate-400">Price</label>
+          <label className="text-sm text-cream/60">Price</label>
           <input
             required
             type="number"
             min={0}
             value={values.price}
             onChange={(e) => update("price", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
           />
         </div>
         <div>
-          <label className="text-sm text-slate-400">Discount Price (optional)</label>
+          <label className="text-sm text-cream/60">Discount Price (optional)</label>
           <input
             type="number"
             min={0}
             value={values.discountPrice}
             onChange={(e) => update("discountPrice", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="text-sm text-slate-400">Stock</label>
+          <label className="text-sm text-cream/60">Stock</label>
           <input
             required
             type="number"
             min={0}
             value={values.stock}
             onChange={(e) => update("stock", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
           />
         </div>
         <div>
-          <label className="text-sm text-slate-400">Product Type</label>
+          <label className="text-sm text-cream/60">Product Type</label>
           <select
             value={values.type}
             onChange={(e) => update("type", e.target.value)}
-            className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+            className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
           >
             <option value="ACCOUNT">Account</option>
             <option value="DIAMOND">Diamond</option>
@@ -184,12 +184,12 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">Category</label>
+        <label className="text-sm text-cream/60">Category</label>
         <select
           required
           value={values.categoryId}
           onChange={(e) => update("categoryId", e.target.value)}
-          className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
         >
           <option value="" disabled>
             Select a category
@@ -203,16 +203,16 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
       </div>
 
       <div>
-        <label className="text-sm text-slate-400">Image URL (optional)</label>
+        <label className="text-sm text-cream/60">Image URL (optional)</label>
         <input
           value={values.imageUrl}
           onChange={(e) => update("imageUrl", e.target.value)}
           placeholder="https://..."
-          className="mt-1 w-full rounded-lg border border-white/10 bg-slate-900 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+          className="mt-1 w-full rounded-lg border border-steel/35 bg-navy px-3 py-2 text-sm text-cream outline-none focus:border-gold"
         />
       </div>
 
-      <label className="flex items-center gap-2 text-sm text-slate-300">
+      <label className="flex items-center gap-2 text-sm text-cream/75">
         <input
           type="checkbox"
           checked={values.isActive}
@@ -221,12 +221,12 @@ export default function AdminProductForm({ productId, initialValues }: AdminProd
         Active (visible in the store)
       </label>
 
-      {error && <p className="text-sm text-red-400">{error}</p>}
+      {error && <p className="text-sm text-danger">{error}</p>}
 
       <button
         type="submit"
         disabled={submitting}
-        className="rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-emerald-400 disabled:opacity-60"
+        className="rounded-lg bg-gold px-5 py-2.5 text-sm font-semibold text-midnight hover:bg-gold-light disabled:opacity-60"
       >
         {submitting ? "Saving..." : "Save Product"}
       </button>

@@ -69,7 +69,7 @@ function TrackOrderContent() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
       <h1 className="text-3xl font-bold">Track Order</h1>
-      <p className="mt-2 text-slate-400">Enter your order code to check its status.</p>
+      <p className="mt-2 text-cream/60">Enter your order code to check its status.</p>
 
       <form
         onSubmit={(e) => {
@@ -82,51 +82,51 @@ function TrackOrderContent() {
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="e.g. MST-20260918-AB12CD"
-          className="flex-1 rounded-lg border border-white/10 bg-slate-900 px-4 py-3 text-sm outline-none focus:border-emerald-500"
+          className="flex-1 rounded-lg border border-steel/35 bg-navy px-4 py-3 text-sm outline-none focus:border-gold"
         />
         <button
           type="submit"
           disabled={loading}
-          className="rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-slate-950 hover:bg-emerald-400 disabled:opacity-60"
+          className="rounded-lg bg-gold px-6 py-3 font-semibold text-midnight hover:bg-gold-light disabled:opacity-60"
         >
           {loading ? "Searching..." : "Search"}
         </button>
       </form>
 
-      {error && <p className="mt-6 text-sm text-red-400">{error}</p>}
+      {error && <p className="mt-6 text-sm text-danger">{error}</p>}
 
       {order && (
-        <div className="mt-8 rounded-2xl border border-white/10 bg-slate-900 p-6">
+        <div className="mt-8 rounded-2xl border border-steel/35 bg-navy p-6">
           <div className="flex items-center justify-between">
-            <span className="font-mono text-sm text-slate-400">{order.orderCode}</span>
-            <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400">
+            <span className="font-mono text-sm text-cream/60">{order.orderCode}</span>
+            <span className="rounded-full bg-gold/12 px-3 py-1 text-xs font-semibold text-gold">
               {statusLabel[order.status] ?? order.status}
             </span>
           </div>
 
-          <p className="mt-4 text-sm text-slate-400">Ordered by</p>
+          <p className="mt-4 text-sm text-cream/60">Ordered by</p>
           <p className="font-semibold">{order.customerName}</p>
 
-          <div className="mt-4 space-y-2 border-t border-white/10 pt-4">
+          <div className="mt-4 space-y-2 border-t border-steel/35 pt-4">
             {order.items.map((item) => (
               <div key={item.id} className="flex justify-between text-sm">
-                <span className="text-slate-300">
+                <span className="text-cream/75">
                   {item.product.name} x{item.quantity}
                 </span>
-                <span className="text-slate-200">{formatRupiah(item.price * item.quantity)}</span>
+                <span className="text-cream/90">{formatRupiah(item.price * item.quantity)}</span>
               </div>
             ))}
           </div>
 
-          <div className="mt-4 flex justify-between border-t border-white/10 pt-4">
+          <div className="mt-4 flex justify-between border-t border-steel/35 pt-4">
             <span className="font-semibold">Total</span>
-            <span className="text-xl font-bold text-emerald-400">
+            <span className="text-xl font-bold text-gold">
               {formatRupiah(order.totalAmount)}
             </span>
           </div>
 
           {order.paymentMethod && (
-            <p className="mt-2 text-sm text-slate-400">Payment: {order.paymentMethod}</p>
+            <p className="mt-2 text-sm text-cream/60">Payment: {order.paymentMethod}</p>
           )}
         </div>
       )}
@@ -136,7 +136,7 @@ function TrackOrderContent() {
 
 export default function TrackOrderPage() {
   return (
-    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-slate-400">Loading...</div>}>
+    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-cream/60">Loading...</div>}>
       <TrackOrderContent />
     </Suspense>
   );

@@ -3,11 +3,19 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-midnight: #0d1b2a;
+  --color-navy: #1b263b;
+  --color-steel: #415a77;
+  --color-gold: #d4af37;
+  --color-gold-light: #e6c65f;
+  --color-cream: #f7f3e9;
+  --color-danger: #e0736a;
 }
 
 ::selection {
-  background-color: rgb(16 185 129 / 0.35);
-  color: white;
+  background-color: rgb(212 175 55 / 0.35);
+  color: #f7f3e9;
 }
 
 @media (prefers-reduced-motion: reduce) {

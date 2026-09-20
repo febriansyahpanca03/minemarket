@@ -3,36 +3,36 @@ import { Cube } from "@phosphor-icons/react/dist/ssr";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-slate-950">
+    <footer className="border-t border-steel/35 bg-midnight">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 sm:grid-cols-3">
           <div>
-            <Link href="/" className="flex items-center gap-2 font-bold text-white">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-500 text-slate-950">
+            <Link href="/" className="flex items-center gap-2 font-bold text-cream">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold text-midnight">
                 <Cube weight="fill" className="h-5 w-5" />
               </span>
               Minestack
             </Link>
-            <p className="mt-3 max-w-xs text-sm text-slate-400">
+            <p className="mt-3 max-w-xs text-sm text-cream/60">
               A trusted Minecraft store for accounts, minecoin, diamonds, and bundles.
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-slate-200">Shop</p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <p className="text-sm font-semibold text-cream/90">Shop</p>
+            <ul className="mt-3 space-y-2 text-sm text-cream/60">
               <li>
-                <Link href="/products" className="hover:text-white">
+                <Link href="/products" className="hover:text-cream">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=minecraft-accounts" className="hover:text-white">
+                <Link href="/products?category=minecraft-accounts" className="hover:text-cream">
                   Minecraft Accounts
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=minecoin" className="hover:text-white">
+                <Link href="/products?category=minecoin" className="hover:text-cream">
                   Minecoin
                 </Link>
               </li>
@@ -40,15 +40,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-slate-200">Support</p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <p className="text-sm font-semibold text-cream/90">Support</p>
+            <ul className="mt-3 space-y-2 text-sm text-cream/60">
               <li>
-                <Link href="/track-order" className="hover:text-white">
+                <Link href="/track-order" className="hover:text-cream">
                   Track Order
                 </Link>
               </li>
               <li>
-                <a href="mailto:hello@minestack.app" className="hover:text-white">
+                <a href="mailto:hello@minestack.app" className="hover:text-cream">
                   hello@minestack.app
                 </a>
               </li>
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-slate-500">
+        <div className="mt-10 border-t border-steel/35 pt-6 text-xs text-cream/45">
           &copy; {new Date().getFullYear()} Minestack. All rights reserved.
         </div>
       </div>

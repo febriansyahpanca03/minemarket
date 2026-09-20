@@ -21,14 +21,14 @@ export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-slate-900 p-6">
+    <div className="rounded-2xl border border-steel/35 bg-navy p-6">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-slate-300">Quantity</span>
+        <span className="text-sm font-medium text-cream/75">Quantity</span>
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            className="h-8 w-8 rounded-full border border-white/20 text-lg leading-none hover:border-white/40"
+            className="h-8 w-8 rounded-full border border-steel/55 text-lg leading-none hover:border-steel/80"
           >
             -
           </button>
@@ -36,23 +36,23 @@ export default function BuyBox({ productId, price, stock }: BuyBoxProps) {
           <button
             type="button"
             onClick={() => setQuantity((q) => Math.min(stock, q + 1))}
-            className="h-8 w-8 rounded-full border border-white/20 text-lg leading-none hover:border-white/40"
+            className="h-8 w-8 rounded-full border border-steel/55 text-lg leading-none hover:border-steel/80"
           >
             +
           </button>
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-        <span className="text-sm text-slate-400">Total</span>
-        <span className="text-xl font-bold text-white">{formatRupiah(price * quantity)}</span>
+      <div className="mt-4 flex items-center justify-between border-t border-steel/35 pt-4">
+        <span className="text-sm text-cream/60">Total</span>
+        <span className="text-xl font-bold text-cream">{formatRupiah(price * quantity)}</span>
       </div>
 
       <button
         type="button"
         disabled={outOfStock}
         onClick={handleBuyNow}
-        className="mt-6 w-full rounded-full bg-emerald-500 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
+        className="mt-6 w-full rounded-full bg-gold py-3 font-semibold text-midnight transition hover:bg-gold-light disabled:cursor-not-allowed disabled:bg-steel/40 disabled:text-cream/60"
       >
         {outOfStock ? "Out of Stock" : "Buy Now"}
       </button>

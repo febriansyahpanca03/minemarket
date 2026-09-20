@@ -21,17 +21,17 @@ export default async function AdminOverviewPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-white">Overview</h1>
-      <p className="mt-1 text-sm text-slate-400">A snapshot of your store's performance.</p>
+      <h1 className="text-2xl font-bold text-cream">Overview</h1>
+      <p className="mt-1 text-sm text-cream/60">A snapshot of your store's performance.</p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-2xl border border-white/10 bg-slate-900 p-6"
+            className="rounded-2xl border border-steel/35 bg-navy p-6"
           >
-            <p className="text-sm text-slate-400">{stat.label}</p>
-            <p className="mt-2 text-2xl font-bold text-white">{stat.value}</p>
+            <p className="text-sm text-cream/60">{stat.label}</p>
+            <p className="mt-2 text-2xl font-bold text-cream">{stat.value}</p>
           </div>
         ))}
       </div>

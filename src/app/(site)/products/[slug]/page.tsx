@@ -26,16 +26,16 @@ export default async function ProductDetailPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <div className="mb-6 flex items-center gap-1.5 text-sm text-slate-400">
-        <Link href="/products" className="hover:text-white">
+      <div className="mb-6 flex items-center gap-1.5 text-sm text-cream/60">
+        <Link href="/products" className="hover:text-cream">
           Products
         </Link>
         <CaretRight className="h-3.5 w-3.5" />
-        <span className="text-slate-200">{product.name}</span>
+        <span className="text-cream/90">{product.name}</span>
       </div>
 
       <div className="grid gap-10 md:grid-cols-2">
-        <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
+        <div className="relative aspect-square overflow-hidden rounded-2xl border border-steel/35 bg-navy">
           {product.imageUrl ? (
             <Image
               src={product.imageUrl}
@@ -46,32 +46,32 @@ export default async function ProductDetailPage({
               className="object-cover"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-slate-600">
+            <div className="flex h-full w-full items-center justify-center text-cream/35">
               No Image
             </div>
           )}
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gold">
             {product.category.name}
           </p>
           <h1 className="mt-2 text-3xl font-bold">{product.name}</h1>
 
           <div className="mt-4 flex items-baseline gap-3">
-            <span className="text-3xl font-black text-white">{formatRupiah(finalPrice)}</span>
+            <span className="text-3xl font-black text-cream">{formatRupiah(finalPrice)}</span>
             {product.discountPrice && (
-              <span className="text-lg text-slate-500 line-through">
+              <span className="text-lg text-cream/45 line-through">
                 {formatRupiah(product.price)}
               </span>
             )}
           </div>
 
-          <p className="mt-2 text-sm text-slate-400">
-            In stock: <span className="text-slate-200">{product.stock}</span>
+          <p className="mt-2 text-sm text-cream/60">
+            In stock: <span className="text-cream/90">{product.stock}</span>
           </p>
 
-          <p className="mt-6 whitespace-pre-line text-slate-300">{product.description}</p>
+          <p className="mt-6 whitespace-pre-line text-cream/75">{product.description}</p>
 
           <div className="mt-8">
             <BuyBox

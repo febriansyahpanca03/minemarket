@@ -27,9 +27,9 @@ export default function ProductCard({
   return (
     <Link
       href={`/products/${slug}`}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-[0_16px_40px_-20px_rgba(16,185,129,0.45)]"
+      className="group overflow-hidden rounded-2xl border border-steel/35 bg-navy transition duration-300 hover:-translate-y-1 hover:border-gold/45 hover:shadow-[0_16px_40px_-20px_rgba(212,175,55,0.5)]"
     >
-      <div className="relative aspect-square w-full overflow-hidden bg-slate-800">
+      <div className="relative aspect-square w-full overflow-hidden bg-steel/20">
         {imageUrl ? (
           <Image
             src={imageUrl}
@@ -39,27 +39,27 @@ export default function ProductCard({
             className="object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-sm text-slate-600">
+          <div className="flex h-full w-full items-center justify-center text-sm text-cream/35">
             No Image
           </div>
         )}
 
         {discountPercent && (
-          <span className="absolute left-3 top-3 rounded-full bg-emerald-500 px-2.5 py-1 text-xs font-bold text-slate-950">
+          <span className="absolute left-3 top-3 rounded-full bg-gold px-2.5 py-1 text-xs font-bold text-midnight">
             -{discountPercent}%
           </span>
         )}
       </div>
 
       <div className="p-4">
-        <p className="text-xs font-medium uppercase tracking-wide text-emerald-400">
+        <p className="text-xs font-medium uppercase tracking-wide text-gold">
           {categoryName}
         </p>
-        <h3 className="mt-1 line-clamp-2 font-semibold text-slate-100">{name}</h3>
+        <h3 className="mt-1 line-clamp-2 font-semibold text-cream">{name}</h3>
         <div className="mt-2 flex items-baseline gap-2">
-          <span className="font-bold text-white">{formatRupiah(finalPrice)}</span>
+          <span className="font-bold text-cream">{formatRupiah(finalPrice)}</span>
           {discountPrice && (
-            <span className="text-xs text-slate-500 line-through">{formatRupiah(price)}</span>
+            <span className="text-xs text-cream/45 line-through">{formatRupiah(price)}</span>
           )}
         </div>
       </div>

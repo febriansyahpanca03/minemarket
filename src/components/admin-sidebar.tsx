@@ -20,8 +20,8 @@ export default function AdminSidebar() {
   }
 
   return (
-    <aside className="flex w-60 shrink-0 flex-col border-r border-white/10 bg-slate-900 p-4">
-      <div className="mb-8 px-2 text-lg font-bold text-white">Minestack Admin</div>
+    <aside className="flex w-60 shrink-0 flex-col border-r border-steel/35 bg-navy p-4">
+      <div className="mb-8 px-2 text-lg font-bold text-cream">Minestack Admin</div>
 
       <nav className="flex-1 space-y-1">
         {links.map((link) => {
@@ -34,8 +34,8 @@ export default function AdminSidebar() {
               href={link.href}
               className={`block rounded-lg px-3 py-2 text-sm font-medium transition ${
                 active
-                  ? "bg-emerald-500/10 text-emerald-400"
-                  : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  ? "bg-gold/12 text-gold"
+                  : "text-cream/75 hover:bg-steel/25 hover:text-cream"
               }`}
             >
               {link.label}
@@ -46,7 +46,7 @@ export default function AdminSidebar() {
 
       <button
         onClick={handleLogout}
-        className="mt-4 rounded-lg border border-white/10 px-3 py-2 text-left text-sm font-medium text-slate-400 hover:border-white/20 hover:text-white"
+        className="mt-4 rounded-lg border border-steel/35 px-3 py-2 text-left text-sm font-medium text-cream/60 hover:border-steel/55 hover:text-cream"
       >
         Sign Out
       </button>

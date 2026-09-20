@@ -59,25 +59,25 @@ export default function AdminOrdersPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-white">Orders</h1>
-      <p className="mt-1 text-sm text-slate-400">Manage customer order statuses.</p>
+      <h1 className="text-2xl font-bold text-cream">Orders</h1>
+      <p className="mt-1 text-sm text-cream/60">Manage customer order statuses.</p>
 
       <div className="mt-6 space-y-4">
         {loading ? (
-          <p className="text-slate-400">Loading...</p>
+          <p className="text-cream/60">Loading...</p>
         ) : orders.length === 0 ? (
-          <p className="text-slate-400">No orders yet.</p>
+          <p className="text-cream/60">No orders yet.</p>
         ) : (
           orders.map((order) => (
             <div
               key={order.id}
-              className="rounded-2xl border border-white/10 bg-slate-900 p-6"
+              className="rounded-2xl border border-steel/35 bg-navy p-6"
             >
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <p className="font-mono text-sm text-slate-400">{order.orderCode}</p>
-                  <p className="font-semibold text-white">{order.customerName}</p>
-                  <p className="text-sm text-slate-400">
+                  <p className="font-mono text-sm text-cream/60">{order.orderCode}</p>
+                  <p className="font-semibold text-cream">{order.customerName}</p>
+                  <p className="text-sm text-cream/60">
                     {order.customerEmail} &middot; {order.customerPhone}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export default function AdminOrdersPage() {
                 <select
                   value={order.status}
                   onChange={(e) => handleStatusChange(order.id, e.target.value)}
-                  className="rounded-lg border border-white/10 bg-slate-800 px-3 py-2 text-sm text-white outline-none focus:border-emerald-500"
+                  className="rounded-lg border border-steel/35 bg-steel/20 px-3 py-2 text-sm text-cream outline-none focus:border-gold"
                 >
                   {statusOptions.map((status) => (
                     <option key={status} value={status}>
@@ -95,22 +95,22 @@ export default function AdminOrdersPage() {
                 </select>
               </div>
 
-              <div className="mt-4 space-y-1 border-t border-white/10 pt-4">
+              <div className="mt-4 space-y-1 border-t border-steel/35 pt-4">
                 {order.items.map((item) => (
                   <div key={item.id} className="flex justify-between text-sm">
-                    <span className="text-slate-300">
+                    <span className="text-cream/75">
                       {item.product.name} x{item.quantity}
                     </span>
-                    <span className="text-slate-200">
+                    <span className="text-cream/90">
                       {formatRupiah(item.price * item.quantity)}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-4 flex justify-between border-t border-white/10 pt-4">
-                <span className="font-semibold text-slate-300">Total</span>
-                <span className="font-bold text-emerald-400">
+              <div className="mt-4 flex justify-between border-t border-steel/35 pt-4">
+                <span className="font-semibold text-cream/75">Total</span>
+                <span className="font-bold text-gold">
                   {formatRupiah(order.totalAmount)}
                 </span>
               </div>
