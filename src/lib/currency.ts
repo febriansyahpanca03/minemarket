@@ -52,22 +52,28 @@ export function isSupportedCurrency(code: string | undefined): code is string {
   return !!code && CURRENCIES.some((c) => c.code === code);
 }
 
-/** Rates are quoted per 1 IDR, refreshed hourly. */
+/**
+ * Rates are quoted per 1 IDR, refreshed hourly. Uses the keyed ExchangeRate-API
+ * endpoint when a key is configured and the free open endpoint otherwise; both
+ * return the same numbers under a different field name.
+ */
 export async function getRates(): Promise<Rates> {
-  try {
-    const res = await fetch(`https://open.er-api.com/v6/latest/${BASE_CURRENCY}`, {
-      next: { revalidate: 3600 },
-    });
+  const apiKey = process.env.EXCHANGE_RATE_API_KEY;
+  const url = apiKey
+    ? `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${BASE_CURRENCY}`
+    : `https://open.er-api.com/v6/latest/${BASE_CURRENCY}`;
 
+  try {
+    const res = await fetch(url, { next: { revalidate: 3600 } });
     if (!res.ok) throw new Error(`rates responded ${res.status}`);
 
     const data = await res.json();
-    if (data.result !== "success" || !data.rates) throw new Error("unexpected rates payload");
+    const table = data.conversion_rates ?? data.rates;
+    if (data.result !== "success" || !table) throw new Error("unexpected rates payload");
 
     const rates: Record<string, number> = { IDR: 1 };
     for (const { code } of CURRENCIES) {
-      if (typeof data.rates[code] === "number") rates[code] = data.rates[code];
-      else rates[code] = FALLBACK_RATES[code];
+      rates[code] = typeof table[code] === "number" ? table[code] : FALLBACK_RATES[code];
     }
 
     return { rates, updatedAt: data.time_last_update_utc ?? null, live: true };
